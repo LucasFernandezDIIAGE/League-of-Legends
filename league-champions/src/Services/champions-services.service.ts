@@ -52,7 +52,8 @@ getChampionById(id:string): Observable<Champion> {
   return this.http.get<any>(url).pipe(
     map((response: { data: any; }) => {
       var championsData = response.data;
-      var champion: Champion = this.mapToModel(championsData);
+      console.log(championsData)
+      var champion: Champion = this.mapToModel(championsData, id);
 
       console.log(champion)
 
@@ -60,21 +61,37 @@ getChampionById(id:string): Observable<Champion> {
     }),
   );
 }
-  private mapToModel(data: any): Champion {
-    const tagsArray: String[] = [];
-    
-    for (const tag of data.tags) {
+  private mapToModel(data: any, id?: string): Champion {
+    var tagsArray: String[] = [];
+
+    if(id){
+      for (var tag of data[id].tags) {
         tagsArray.push(tag);
     }
-    
     return new Champion(
-        data.id,
-        data.name,
-        data.title,
-        tagsArray,
-        [],
-        data.stats
-    );
+      data[id].id,
+      data[id].name,
+      data[id].title,
+      tagsArray,
+      [],
+      data[id].stats
+  );
+    }
+    else{
+      for (var tag of data.tags) {
+        tagsArray.push(tag);
+    }
+    return new Champion(
+      data.id,
+      data.name,
+      data.title,
+      tagsArray,
+      [],
+      data.stats
+  );
+    }
+    
+    
 }
 
 

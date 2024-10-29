@@ -29,10 +29,11 @@ export class ChampionDetailsPage implements OnInit {
     this.route.paramMap.subscribe((params)=>{
       this.championId = params.get('id')!
     })
+    this.loadChampion(this.championId)
   }
 
   async loadChampion(id: string){
-    this.championsService.getChampionById(id).subscribe((champion)=>{
+    await this.championsService.getChampionById(id).subscribe((champion)=>{
       this.champion = champion
     })
   }
