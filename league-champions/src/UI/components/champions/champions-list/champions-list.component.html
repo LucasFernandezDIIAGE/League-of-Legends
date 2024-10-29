@@ -1,17 +1,6 @@
 <ion-searchbar [debounce]="100" placeholder="Rechercher" (ionInput)="handleInput($event)"></ion-searchbar>
 
 <ion-list>
-  <ion-card *ngFor="let champion of filteredChampionsList">
-    <ion-card-header>
-      <ion-card-title>
-        {{champion.nom}}
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-card-subtitle>
-        {{champion.titre}}
-      </ion-card-subtitle>
-      <ion-chip>{{champion.categorie}}</ion-chip>
-    </ion-card-content>
-  </ion-card>
+  <app-champion-card *ngFor="let champion of filteredChampionsList" [champion]="champion">
+  </app-champion-card>
 </ion-list>

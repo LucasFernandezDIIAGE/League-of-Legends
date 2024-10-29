@@ -1,19 +1,22 @@
 ﻿import {Skin} from '../Skins/Skin.model'
 import { Categorie } from '../Categories/Categorie.model';
+import { Statistique } from '../Statistiques/Statistique.model';
 
 export class Champion{
-    id: Number;
+    id: string;
     nom: string;
     titre: string;
-    categorie: Categorie[];
+    categories: String[];
     skins: Skin[];
+    stats: Statistique | undefined;
 
-    constructor(id: Number, nom: string, titre: string, categorie: Categorie[], skins: Skin[]){
+    constructor(id: string, nom: string, titre: string, categories: String[], skins: Skin[], stats: Statistique){
         this.id = id;
         this.nom = nom;
         this.titre = titre;
-        this.categorie = categorie;
-        this.skins = skins
+        this.categories = categories;
+        this.skins = skins;
+        this.stats = stats
     }
 }
 

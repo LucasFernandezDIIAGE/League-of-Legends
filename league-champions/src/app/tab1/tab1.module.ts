@@ -7,6 +7,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { ChampionsListComponent } from 'src/UI/components/champions/champions-list/champions-list.component';
+import { ChampionCardComponent } from 'src/UI/components/champions/champion-card/champion-card.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { ChampionsListComponent } from 'src/UI/components/champions/champions-li
   ],
   declarations: [
     Tab1Page,
-    ChampionsListComponent
+    ChampionsListComponent,
+    ChampionCardComponent,
   ]
 })
 export class Tab1PageModule {}

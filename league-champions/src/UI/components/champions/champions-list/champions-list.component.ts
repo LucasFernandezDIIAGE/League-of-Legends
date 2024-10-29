@@ -11,6 +11,14 @@ export class ChampionsListComponent  implements OnInit {
 
   championsList: Champion[] = [];
   filteredChampionsList: Champion[]=[]
+  champion: Champion = {
+    id: '',
+    nom: '',
+    titre: '',
+    categories: [],
+    skins: [],
+    stats: undefined
+  };
 
   constructor(
     private championsService: ChampionsService
@@ -25,6 +33,7 @@ export class ChampionsListComponent  implements OnInit {
       next: (data) => {
         this.championsList = data;
         this.filteredChampionsList = [...this.championsList]
+        console.log(this.filteredChampionsList)
       },
       error: (error) => {
         console.error('Erreur lors de la récupération des champions:', error);
@@ -37,8 +46,11 @@ export class ChampionsListComponent  implements OnInit {
     
     // Liste de mots-clés spéciaux et des champions correspondants
     const specialFilters: {[key: string]: string[]} = {
-      'chat': ['Rengar', 'Yuumi'],
-      'renard': ['Ahri'],
+      'cat': ['Rengar', 'Yuumi'],
+      'fox': ['Ahri'],
+      'horse': ['Hecarim'],
+      'pigeon': ['Azir'],
+      'bird': ['Anivia']
     };
   
     if (specialFilters[query]) {
@@ -46,7 +58,6 @@ export class ChampionsListComponent  implements OnInit {
         specialFilters[query].includes(champion.nom)
       );
     } else {
-      // Filtre classique par nom ou titre si aucun mot-clé spécial n'est trouvé
       this.filteredChampionsList = this.championsList.filter((champion) => 
         champion.nom.toLowerCase().includes(query) || 
         champion.titre.toLowerCase().includes(query)
