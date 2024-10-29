@@ -7,7 +7,7 @@ export class EnvironmentService {
 
   // Liste des variables contenant les débuts d'URL des appels API
 
-  private readonly baseUrl: string = 'https://ddragon.leagueoflegends.com/cdn/14.21.1/data/fr_FR';   // Préfix URL API LOL
+  private readonly baseUrl: string = 'https://ddragon.leagueoflegends.com/cdn/14.21.1/data/en_US';   // Préfix URL API LOL
 
   private readonly apiAllChampions: string = '/champion.json';
   private readonly apiChampion: string = '/champion/';
@@ -27,7 +27,7 @@ export class EnvironmentService {
 
   // URL complète pour accéder à un champion
   getChampionApiUrl(): string {
-    return this.getAllChampionsApiUrl() + this.apiChampion
+    return this.getApiBaseUrl() + this.apiChampion
   }
 
   // URL complète pour accéder aux skins
