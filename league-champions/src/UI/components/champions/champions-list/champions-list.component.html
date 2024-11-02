@@ -1,6 +1,6 @@
-<ion-searchbar [debounce]="100" placeholder="Rechercher" (ionInput)="handleInput($event)"></ion-searchbar>
+<ion-searchbar class="searchbar" [debounce]="100" placeholder="Rechercher" (ionInput)="handleInput($event)"></ion-searchbar>
 
-<ion-list>
+<div class="card-container">
   <app-champion-card *ngFor="let champion of filteredChampionsList" [champion]="champion">
   </app-champion-card>
-</ion-list>
+</div>

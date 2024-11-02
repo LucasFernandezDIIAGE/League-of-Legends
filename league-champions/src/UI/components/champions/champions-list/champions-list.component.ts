@@ -33,7 +33,6 @@ export class ChampionsListComponent  implements OnInit {
       next: (data) => {
         this.championsList = data;
         this.filteredChampionsList = [...this.championsList]
-        console.log(this.filteredChampionsList)
       },
       error: (error) => {
         console.error('Erreur lors de la récupération des champions:', error);

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
+  @ViewChild(IonContent)
+  content!: IonContent;
+
   constructor() {}
 
+  scrollToTop(){
+    this.content.scrollToTop(500)
+  }
 }

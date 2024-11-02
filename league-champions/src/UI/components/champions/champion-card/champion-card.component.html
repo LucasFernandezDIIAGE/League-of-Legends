@@ -1,13 +1,16 @@
 <ion-card [routerLink]="['/', 'champion', champion.id]">
-  <ion-card-header>
+  <ion-card-content class="content">
+    <ion-avatar>
+      <img src="../../../../assets/icon/champions-icon-removebg-preview.svg">
+    </ion-avatar>
     <ion-card-title>{{ champion.nom }}</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
     <ion-card-subtitle>{{ champion.titre }}</ion-card-subtitle>
-    <div *ngFor="let categorie of champion.categories">
-      <ion-chip>
-        <ion-label>{{ categorie }}</ion-label>
-      </ion-chip>
+    <div class="tag-list">
+      <div *ngFor="let categorie of champion.categories">
+        <ion-chip>
+          <ion-label>{{ categorie }}</ion-label>
+        </ion-chip>
+      </div>
     </div>
   </ion-card-content>
 </ion-card>

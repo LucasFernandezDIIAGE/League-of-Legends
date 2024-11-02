@@ -52,10 +52,7 @@ getChampionById(id:string): Observable<Champion> {
   return this.http.get<any>(url).pipe(
     map((response: { data: any; }) => {
       var championsData = response.data;
-      console.log(championsData)
       var champion: Champion = this.mapToModel(championsData, id);
-
-      console.log(champion)
 
       return champion;
     }),
